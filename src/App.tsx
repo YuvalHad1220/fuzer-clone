@@ -2,6 +2,7 @@ import { Box } from "@mui/system"
 import CompactTable from "./Homepage/CompactTable"
 import IMDBBar from "./Homepage/IMDBBar"
 import AnnouncementPaper from "./Homepage/AnnouncementPaper"
+import DataBar from "./General/DataBar";
 
 function App() {
   const text = 
@@ -24,6 +25,7 @@ function App() {
       <AnnouncementPaper title="היי! חופש שמח!" markdownText={text} postDate={new Date()} />
       <AnnouncementPaper title="היי! חופש שמח!" markdownText={text} postDate={new Date()} />
       <AnnouncementPaper title="היי! חופש שמח!" markdownText={text} postDate={new Date()} />
+      <DataBar />
     </Box>
 
   )
