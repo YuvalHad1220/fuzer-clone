@@ -3,6 +3,7 @@ import CompactTable from "./Homepage/CompactTable"
 import IMDBBar from "./Homepage/IMDBBar"
 import AnnouncementPaper from "./Homepage/AnnouncementPaper"
 import DataBar from "./General/DataBar";
+import MarkdownEditor from "./General/MarkdownEditor";
 
 function App() {
   const text = 
@@ -13,19 +14,17 @@ function App() {
   `;  
   return (
     <Box display="flex" flexDirection="column" gap={2} padding={2}>
-          <Box display="flex" flexDirection="row" gap={2} padding={2}>
-            <CompactTable />
-            <CompactTable />
-          </Box>
+      <DataBar />
+
+      <Box display="flex" flexDirection="row" gap={2} padding={2}>
+        <CompactTable />
+        <CompactTable />
+      </Box>
 
 
       <IMDBBar/>
       <AnnouncementPaper title="היי! חופש שמח!" markdownText={text} postDate={new Date()} />
-      <AnnouncementPaper title="היי! חופש שמח!" markdownText={text} postDate={new Date()} />
-      <AnnouncementPaper title="היי! חופש שמח!" markdownText={text} postDate={new Date()} />
-      <AnnouncementPaper title="היי! חופש שמח!" markdownText={text} postDate={new Date()} />
-      <AnnouncementPaper title="היי! חופש שמח!" markdownText={text} postDate={new Date()} />
-      <DataBar />
+      <MarkdownEditor />
     </Box>
 
   )
