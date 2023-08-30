@@ -32,17 +32,24 @@ const IMDBBar: React.FC = () => {
     }
 
         return (
-            <>
-            <Box display="flex" flexDirection="row" justifyContent="space-between" position="relative" top="100px" zIndex={2} >
-                <Fab size="small" color="primary" onMouseEnter={() => scroll("right")} onMouseLeave={stopScroll} aria-label="גלול ימינה"><ChevronRightIcon/></Fab>
-                <Fab size="small" color="primary" onMouseEnter={() => scroll("left")} onMouseLeave={stopScroll} aria-label="גלול שמאלה"><ChevronLeftIcon/></Fab>
-            </Box>
-            <Paper>
-                <Box ref={scrollableBox} display="flex" flexDirection="row" gap={6} sx={{overflowX: "hidden", scrollBehavior:"smooth"}}>
+            // <>
+            // <Box display="flex" flexDirection="row" justifyContent="space-between" position="relative" top="100px" zIndex={2} >
+            //     <Fab size="small" color="primary" onMouseEnter={() => scroll("right")} onMouseLeave={stopScroll} aria-label="גלול ימינה"><ChevronRightIcon/></Fab>
+            //     <Fab size="small" color="primary" onMouseEnter={() => scroll("left")} onMouseLeave={stopScroll} aria-label="גלול שמאלה"><ChevronLeftIcon/></Fab>
+            // </Box>
+            <Paper sx={{position: 'relative' }}>
+                <Fab size="small" color="primary" onMouseEnter={() => scroll("left")} onMouseLeave={stopScroll} aria-label="גלול שמאלה" sx={{position: "absolute", top: "50%", right: 8, transform: "translateY(-50%)"}}><ChevronLeftIcon/></Fab>
+                <Fab size="small" color="primary" onMouseEnter={() => scroll("right")} onMouseLeave={stopScroll} aria-label="גלול ימינה" sx={{position: "absolute", top: "50%", left: 8, transform: "translateY(-50%)" }}><ChevronRightIcon/></Fab>
+                <Box
+                    ref={scrollableBox}
+                    display="flex"
+                    flexDirection="row"
+                    gap={4}
+                    sx={{ overflowX: 'hidden', scrollBehavior: 'smooth', paddingX: 7}}>
                     {itemList.map((item, i) => <h1 key={i}>{item}</h1>)}
                 </Box>
             </Paper>
-            </>
+            // </>
 
 
     );
