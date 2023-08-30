@@ -1,4 +1,4 @@
-interface CompactTorrentData {
+export interface CompactTorrentData {
     name: string,
     downloadLink: string,
     size: string,
