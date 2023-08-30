@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Fab, Paper, Typography } from "@mui/material";
+import { Box, CircularProgress, Divider, Fab, Paper, Typography } from "@mui/material";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import React, { useRef, useState } from "react";
@@ -60,6 +60,7 @@ const IMDBBar: React.FC = () => {
         return (
             <Paper sx={{position: 'relative' }}>
                 <Typography textAlign="center" fontWeight="bold">מומלצים</Typography>
+                <Divider />
                 <Fab size="small" color="primary" onMouseEnter={() => scroll("left")} onMouseLeave={stopScroll} aria-label="גלול שמאלה" sx={{position: "absolute", top: "50%", right: 8, transform: "translateY(-50%)"}}><ChevronLeftIcon/></Fab>
                 <Fab size="small" color="primary" onMouseEnter={() => scroll("right")} onMouseLeave={stopScroll} aria-label="גלול ימינה" sx={{position: "absolute", top: "50%", left: 8, transform: "translateY(-50%)" }}><ChevronRightIcon/></Fab>
                 <Box

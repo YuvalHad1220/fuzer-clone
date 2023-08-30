@@ -1,10 +1,11 @@
-import { Paper, SxProps, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Theme } from "@mui/material";
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import FilePresentIcon from '@mui/icons-material/FilePresent';
 import OfflinePinIcon from '@mui/icons-material/OfflinePin';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import { styled } from "@mui/system";
+import { CompactTorrentData } from "../assets/interfaces/Torrent";
 
 const textNormalize = (text: string) => {
     const maxLength = 60;
