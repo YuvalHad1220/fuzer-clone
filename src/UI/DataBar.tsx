@@ -1,4 +1,4 @@
-import { Box, Divider, Paper, Typography } from "@mui/material";
+import { Box, Divider, Grid, Paper, Typography } from "@mui/material";
 import { siteData, userData } from "../assets/interfaces/General";
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
@@ -166,7 +166,6 @@ const DataBar: React.FC = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        flex: 1,
         gap: 0.3
     };
 
@@ -174,24 +173,24 @@ const DataBar: React.FC = () => {
         display: "flex",
         flexDirection: "row",
         overflowX: "auto",
-        flex: 1,
         gap: 2,
     };
 
 
     return (
-        <Paper sx={{display: "flex", flexDirection: "row", height: 60}}>
-            <Box sx={userDataBarProps}>
+        <Grid component={Paper} container height={60}>
+            <Grid item xs={8} component={Box} sx={userDataBarProps} >
                 {userMainData}
                 {userSecondaryData}
-            </Box>
+            </Grid>
+            <Divider sx={{margin: "-1px"}} orientation="vertical" light />
+            <Grid item xs={4} component={Box} sx={siteDataBarProps}>
+                <CountdownTimer {...freeleech} />
+                <CountdownTimer {...freeleech} />
+            </Grid>
+        </Grid>
 
-            <Divider orientation="vertical" light />
-            <Box sx={siteDataBarProps}>
-                <CountdownTimer {...freeleech} />
-                <CountdownTimer {...freeleech} />
-            </Box>
-        </Paper>
+
     );
 };
 

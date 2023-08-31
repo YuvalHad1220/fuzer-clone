@@ -13,7 +13,7 @@ function App() {
   🟨זכרו להמשיך ולשתף, חוקי השיתוף חלים כל הזמן🟨
   `;  
   return (
-    <Box display="flex" flexDirection="column" gap={2} padding={10}>
+    <Box display="flex" flexDirection="column" gap={2} padding={6}>
       <DataBar />
 
       <Box display="flex" flexDirection="row" gap={2}>
