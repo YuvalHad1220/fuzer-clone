@@ -2,8 +2,8 @@ import { Box } from "@mui/system"
 import CompactTable from "./Homepage/CompactTable"
 import IMDBBar from "./Homepage/IMDBBar"
 import AnnouncementPaper from "./Homepage/AnnouncementPaper"
-import DataBar from "./General/DataBar";
-import MarkdownEditor from "./General/MarkdownEditor";
+import DataBar from "./UI/DataBar";
+import MarkdownEditor from "./UI/MarkdownEditor";
 
 function App() {
   const text = 

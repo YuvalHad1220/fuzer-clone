@@ -78,8 +78,8 @@ const MarkdownEditor: React.FC = () => {
 
     return (
         <Paper>
-            <ButtonGroup fullWidth>
-            <Button onClick={() => insert("header1")}>כותרת 1</Button>
+            <ButtonGroup fullWidth sx={{borderBottomLeftRadius: 0, borderBottomRightRadius: 0}}>
+            <Button onClick={() => insert("header1")} sx={{borderBottomLeftRadius: 0, borderBottomRightRadius: 0}}>כותרת 1</Button>
                 <Button onClick={() => insert("header2")}>כותרת 2</Button>
                 <Button onClick={() => insert("header3")}>כותרת 3</Button>
                 <Button onClick={() => insert("bold")}>בולט</Button>
@@ -87,7 +87,7 @@ const MarkdownEditor: React.FC = () => {
                 <Button onClick={() => insert("image")}>הוספת תמונה</Button>
                 <Button onClick={() => insert("link")}>הוספת קישור</Button>
                 <Button>אימוגים</Button>
-                <Button>סימוני טקסט</Button>
+                <Button sx={{borderBottomLeftRadius: 0, borderBottomRightRadius: 0}}>סימוני טקסט</Button>
             </ButtonGroup>
 
             <TextField
@@ -96,8 +96,9 @@ const MarkdownEditor: React.FC = () => {
                 fullWidth
                 value={markdownText}
                 onChange={onTextChange}
+                InputProps = {{sx: {borderTopLeftRadius: 0, borderTopRightRadius: 0, bgcolor: "white", color: "black"}}}
             />
-            <Card sx={{ bgcolor: "white", color: "black" }}>
+            <Card>
                 <MuiMarkdown>{markdownText}</MuiMarkdown>
             </Card>
         </Paper>
