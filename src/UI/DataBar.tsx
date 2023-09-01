@@ -1,8 +1,9 @@
-import { Box, Divider, Grid, Paper, Typography } from "@mui/material";
-import { siteData, userData } from "../assets/interfaces/General";
+import { Box, Button, Divider, Grid, LinearProgress, Paper, Typography } from "@mui/material";
+import { siteData, siteEventData, userData } from "../assets/interfaces/General";
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import MarkunreadIcon from '@mui/icons-material/Markunread';
+import EighteenUpRatingIcon from '@mui/icons-material/EighteenUpRating';
 import React, { useState, useEffect, } from "react";
 import SmallText from "./SmallText";
 import MultiTextWrapper from "./MultiTextWrapper";
@@ -21,19 +22,25 @@ const DataBar: React.FC = () => {
         seedAmount: 12123123,
         downloadAmount: 392133,
         factorPerHour: 90,
-        messagesAmount: 21
+        messagesAmount: 21,
+        nsfw: true,
     };
 
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate()+10);
 
-    const freeleech: siteData = {
+    const freeleech: siteEventData = {
         type: "FREELEECH",
         color: "lightgreen",
         endDate: tomorrow
     };
 
-    const CountdownTimer: React.FC<siteData> = ({type, color, endDate}) => {
+    const globalSiteData: siteData = {
+        events: [freeleech],
+        donationProgress: 10
+    }
+
+    const CountdownTimer: React.FC<siteEventData> = ({type, color, endDate}) => {
         const [timeDifference, setTimeDifference] = useState<number>(endDate.getTime() - (new Date()).getTime());
         useEffect(() => {
             const interval = setInterval(() => {
@@ -161,12 +168,18 @@ const DataBar: React.FC = () => {
     );
 
 
-    const userDataBarProps = {
+    const userDataProps = {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         gap: 0.3
+    };
+
+    const userDataBarProps = {
+        display: "flex",
+        justifyContent: "space-between",
+        paddingX: 4
     };
 
     const siteDataBarProps = {
@@ -177,16 +190,26 @@ const DataBar: React.FC = () => {
     };
 
 
+    const nsfwButton = <Button color="error"><EighteenUpRatingIcon fontSize="large"/></Button>;
+    const donationProgress = (
+        <Box sx={{display: "flex", flexDirection: "column", gap: 1}}>
+            תרומות:
+            <LinearProgress variant="determinate" value={globalSiteData.donationProgress} sx={{height: 9, borderRadius: 10, width: "200px"}}/>
+        </Box>
+    )
     return (
         <Grid component={Paper} container height={60}>
-            <Grid item xs={8} component={Box} sx={userDataBarProps} >
-                {userMainData}
-                {userSecondaryData}
+            <Grid item xs={7} component={Box} sx={userDataBarProps} >
+                <Box sx={userDataProps}>
+                    {userMainData}
+                    {userSecondaryData}
+                </Box>
+                {nsfwButton}
             </Grid>
             <Divider sx={{margin: "-1px"}} orientation="vertical" light />
-            <Grid item xs={4} component={Box} sx={siteDataBarProps}>
-                <CountdownTimer {...freeleech} />
-                <CountdownTimer {...freeleech} />
+            <Grid item xs={5} component={Box} sx={siteDataBarProps}>
+                {globalSiteData.events.map(event => <CountdownTimer {...event} key={event.type} />)}
+                {donationProgress}
             </Grid>
         </Grid>
 

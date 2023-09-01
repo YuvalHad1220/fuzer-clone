@@ -9,11 +9,17 @@ export interface userData {
     downloadAmount: number,
     factorPerHour: number,
     hnr: number,
-    messagesAmount: number
+    messagesAmount: number,
+    nsfw: boolean
 }
 
-export interface siteData {
+export interface siteEventData {
     type: string,
     color: string,
     endDate: Date
+}
+
+export interface siteData {
+    events: Array<siteEventData>
+    donationProgress: number
 }

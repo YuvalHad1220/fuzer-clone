@@ -4,7 +4,7 @@ import IMDBBar from "./Homepage/IMDBBar"
 import AnnouncementPaper from "./Homepage/AnnouncementPaper"
 import DataBar from "./UI/DataBar";
 import MarkdownEditor from "./UI/MarkdownEditor";
-
+import Navbar from "./UI/Navbar";
 function App() {
   const text = 
   `
@@ -14,6 +14,7 @@ function App() {
   `;  
   return (
     <Box display="flex" flexDirection="column" gap={2} padding={6}>
+      <Navbar />
       <DataBar />
 
       <Box display="flex" flexDirection="row" gap={2}>
