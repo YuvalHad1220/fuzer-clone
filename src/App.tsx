@@ -1,10 +1,11 @@
 import { Box } from "@mui/system"
-import CompactTable from "./Homepage/CompactTable"
+import CompactTorrentTable from "./Homepage/CompactTorrentTable"
 import IMDBBar from "./Homepage/IMDBBar"
 import AnnouncementPaper from "./Homepage/AnnouncementPaper"
 import DataBar from "./UI/DataBar";
 import MarkdownEditor from "./UI/MarkdownEditor";
 import Navbar from "./UI/Navbar";
+import LatestPostsTable from "./Forum/LatestPostsTable";
 function App() {
   const text = 
   `
@@ -18,14 +19,15 @@ function App() {
       <DataBar />
 
       <Box display="flex" flexDirection="row" gap={2}>
-        <CompactTable />
-        <CompactTable />
+        <CompactTorrentTable />
+        <CompactTorrentTable />
       </Box>
 
 
       <IMDBBar/>
       <AnnouncementPaper title="היי! חופש שמח!" markdownText={text} postDate={new Date()} />
       <MarkdownEditor />
+      <LatestPostsTable />
     </Box>
 
   )

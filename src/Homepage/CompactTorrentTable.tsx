@@ -1,4 +1,4 @@
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
 import FilePresentIcon from '@mui/icons-material/FilePresent';
 import OfflinePinIcon from '@mui/icons-material/OfflinePin';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
@@ -19,7 +19,7 @@ const StyledTableCell = styled(TableCell)({
     
 });
 
-const CompactTable : React.FC = () => {
+const CompactTorrentTable : React.FC = () => {
     const rows : Array<CompactTorrentData> = [
         {
             name: "ספיידרמן: ברחבי ממדי העכביש - מדובב | Spider-Man Across The Spider-Verse 2023 HebDub 1080p WEBRip x264-Silver007            ",
@@ -114,7 +114,7 @@ const CompactTable : React.FC = () => {
     const Head = (
         <TableHead>
             <TableRow>
-                <StyledTableCell sx={{textAlign: "left"}}>טורנטים חדשים</StyledTableCell>
+                <StyledTableCell sx={{textAlign: "left"}}><Typography fontWeight="bold">טורנטים חדשים</Typography></StyledTableCell>
                 <StyledTableCell>DL</StyledTableCell>
                 <StyledTableCell><FilePresentIcon/></StyledTableCell>
                 <StyledTableCell><OfflinePinIcon color="primary"/></StyledTableCell>
@@ -154,4 +154,4 @@ const CompactTable : React.FC = () => {
 
 };
 
-export default CompactTable;
+export default CompactTorrentTable;

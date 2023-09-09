@@ -9,7 +9,7 @@ export interface userData {
     downloadAmount: number,
     factorPerHour: number,
     hnr: number,
-    messagesAmount: number,
+    messagesAmounwwwt: number,
     nsfw: boolean
 }
 
