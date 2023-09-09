@@ -71,6 +71,7 @@ const DataBar: React.FC = () => {
             <SmallText bold >ברוך הבא,</SmallText>
             <SmallText bold color="gold">{brokenKettleData.username}</SmallText>
             <SmallText fontSize={10} color="lightbrown">({brokenKettleData.role})</SmallText>
+            <SmallText fontSize={10} bold>התנתק</SmallText>
         </MultiTextWrapper>
     );
     const HNR = (
