@@ -1,4 +1,5 @@
 import { Box, Divider, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, styled } from "@mui/material";
+import { SummarizedPost } from "../assets/interfaces/Forum";
 
 const StyledTableCell = styled(TableCell)({
     padding: 0,
@@ -7,6 +8,21 @@ const StyledTableCell = styled(TableCell)({
 });
 const LatestPostsTable: React.FC = () => {
 
+    const SummarizedPosts: Array<SummarizedPost> = [
+        {
+            title: "עזרה בבקשה",
+            poster: "RonPeled",
+            postDate: new Date(),
+            views: 1200,
+            commentCount: 0,
+            latestCommentDate: new Date(),
+            latestCommentPoster: "Roei"
+
+        }
+    ] ;
+
+
+    const post = SummarizedPosts[0];
     
     const head = (
         <TableHead>
@@ -19,48 +35,41 @@ const LatestPostsTable: React.FC = () => {
             </TableRow>
         </TableHead>
     );
-    const username = "Ronpeled";
-    const date = new Date();
-
-    const formattedDate = date.toLocaleDateString("he-il");
-    const formattedTime = date.toLocaleTimeString("he-il", {hour: "2-digit", minute: "2-digit"});
+    const formattedDate = post.postDate.toLocaleDateString("he-il");
+    const formattedTime = post.postDate.toLocaleTimeString("he-il", {hour: "2-digit", minute: "2-digit"});
 
     const row = (
-        <>
+        <TableRow>
         <StyledTableCell width="10%">
 
         </StyledTableCell>
             <StyledTableCell width="40%">
-                <Box display="flex" flexDirection="row">
-                    <Box>
                         <Typography fontWeight="bold">קונה ביקורת לעסק - דקה מזמנכם - מיליון נקודות 100000</Typography>
-                        <Typography variant="body2" color="gray">{`פורסם ע"י ${username}, בתאריך ${formattedDate} בשעה ${formattedTime}`}</Typography>
-                    </Box>
-                </Box>
+                        <Typography variant="body2" color="gray" display="inline">פורסם ע"י</Typography> 
+                        <Typography variant="body2" color="salmon" display="inline" fontWeight="bold"> {post.poster} </Typography>
+                        <Typography variant="body2" color="gray" display="inline">{`בתאריך ${formattedDate} בשעה ${formattedTime}`}</Typography>
             </StyledTableCell>
             <StyledTableCell width="20%">
-                <Box display="flex" flexDirection="column">
-                    <Typography variant="body2">{new Date().toLocaleDateString()}</Typography>
-                    <Typography variant="body2">{new Date().toLocaleTimeString()}</Typography>
-                    <Typography variant="body2">ע"י Yuvalhad12</Typography>
-                </Box>
-            
+                    <Typography variant="body2">{new Date().toLocaleString("he-IL", {year:"2-digit", month:"2-digit", day:"2-digit", hour: "2-digit", minute: "2-digit"})}</Typography>
+                    <Typography variant="body2" display="inline">ע"י </Typography>
+                    <Typography variant="body2" display="inline" color="cyan" fontWeight="bold">{post.latestCommentPoster}</Typography>
             </StyledTableCell>
             <StyledTableCell width="10%">
-            
+            <Typography>{post.commentCount}</Typography>
             </StyledTableCell>
             <StyledTableCell width="10%">
-            
+            <Typography>{post.views}</Typography>
             </StyledTableCell>
-        </>
+        </TableRow>
 
 
     );
     const body = (
-        <TableBody>
-            <TableRow>
-                {row}
-            </TableRow>
+        <TableBody sx={{"&:last-child": {borderBottom: 0}}}>
+            {row}
+            {row}
+            {row}
+            {row}
         </TableBody>
     );
 
