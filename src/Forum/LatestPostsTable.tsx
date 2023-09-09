@@ -11,23 +11,55 @@ const LatestPostsTable: React.FC = () => {
     const head = (
         <TableHead>
             <TableRow>
-                <StyledTableCell width="10%">סמל</StyledTableCell>
-                <StyledTableCell width="40%">שם האשכול</StyledTableCell>
-                <StyledTableCell width="20%">תגובה אחרונה</StyledTableCell>
-                <StyledTableCell width="10%">תגובות</StyledTableCell>
-                <StyledTableCell width="10%">צפיות</StyledTableCell>
+                <StyledTableCell width="10%"><Typography fontWeight="bold">סוג</Typography></StyledTableCell>
+                <StyledTableCell width="40%"><Typography fontWeight="bold">שם האשכול</Typography></StyledTableCell>
+                <StyledTableCell width="20%"><Typography fontWeight="bold">תגובה אחרונה</Typography></StyledTableCell>
+                <StyledTableCell width="10%"><Typography fontWeight="bold">תגובות</Typography></StyledTableCell>
+                <StyledTableCell width="10%"><Typography fontWeight="bold">צפיות</Typography></StyledTableCell>
             </TableRow>
         </TableHead>
     );
+    const username = "Ronpeled";
+    const date = new Date();
 
+    const formattedDate = date.toLocaleDateString("he-il");
+    const formattedTime = date.toLocaleTimeString("he-il", {hour: "2-digit", minute: "2-digit"});
+
+    const row = (
+        <>
+        <StyledTableCell width="10%">
+
+        </StyledTableCell>
+            <StyledTableCell width="40%">
+                <Box display="flex" flexDirection="row">
+                    <Box>
+                        <Typography fontWeight="bold">קונה ביקורת לעסק - דקה מזמנכם - מיליון נקודות 100000</Typography>
+                        <Typography variant="body2" color="gray">{`פורסם ע"י ${username}, בתאריך ${formattedDate} בשעה ${formattedTime}`}</Typography>
+                    </Box>
+                </Box>
+            </StyledTableCell>
+            <StyledTableCell width="20%">
+                <Box display="flex" flexDirection="column">
+                    <Typography variant="body2">{new Date().toLocaleDateString()}</Typography>
+                    <Typography variant="body2">{new Date().toLocaleTimeString()}</Typography>
+                    <Typography variant="body2">ע"י Yuvalhad12</Typography>
+                </Box>
+            
+            </StyledTableCell>
+            <StyledTableCell width="10%">
+            
+            </StyledTableCell>
+            <StyledTableCell width="10%">
+            
+            </StyledTableCell>
+        </>
+
+
+    );
     const body = (
         <TableBody>
             <TableRow>
-            <StyledTableCell width="10%">בדיחה</StyledTableCell>
-                <StyledTableCell width="40%">לא אני מת</StyledTableCell>
-                <StyledTableCell width="20%">תגובה אחרונה</StyledTableCell>
-                <StyledTableCell width="10%">תגובות</StyledTableCell>
-                <StyledTableCell width="10%">צפיות</StyledTableCell>
+                {row}
             </TableRow>
         </TableBody>
     );
